@@ -1,0 +1,45 @@
+<div class="container">
+    
+  <!--search bar starts here-->
+  <div class="row">
+      <div class="form-group col-md-8 col-xs-12 mx-auto">
+        <div class="input-group mb-3 padd">
+          <input type="text" appAutofocus class="form-control" placeholder="Search" aria-label="Search" minlength="3" (input)="getResults($event)">
+          <button class="btn btn-outline-light" type="button" id="button-addon2"><span class="input-group-append"><img
+                src="https://image.flaticon.com/icons/svg/54/54481.svg" width="18px"></span></button>
+  
+        </div>
+        <div class="form-group search-bottom-line">
+          <hr>
+        </div>
+      </div>
+    </div>
+<!--search bar ends here-->
+
+
+    <!--no results div starts here-->
+    <div class="row">
+      <div *ngIf="result" class="mx-auto">
+        <div *ngIf="!users?.length > 0" class="col-md-12 col-xs-12 mx-auto text-muted">
+          <div class="alert alert-light text-center mx-auto" role="alert">
+            No Results Found
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--no results div ends here-->
+
+
+    <div class="row">
+      <div *ngIf="users" class="col-md-8 col-xs-12 mx-auto search-box">
+        <div *ngFor="let user of users">
+          <a [routerLink]="['/user',user.login]">
+            <div class="col-md-8 col-xs-12 search-user">
+              {{user.login}}
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+  </div>

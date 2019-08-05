@@ -1,0 +1,23 @@
+.padd{
+    padding: 20px;
+}
+.form-control{
+    border: 0;
+    border-color: #ffffff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.search-bottom-line{
+    margin-top: -30px;
+}
+.search-box{
+    margin-top: -25px;
+    padding: 10px;
+    height: 250px;
+    overflow-y: auto;
+}
+.search-user{
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #007bff;
+}

@@ -1,0 +1,18 @@
+.padd{
+    padding: 50px 18px 10px;
+}
+.repos-box{
+    height: 60vh;
+    overflow-y: auto;
+}
+.user-box{
+    padding: 10px;
+    text-decoration: none;
+}
+.box-padd{
+    padding: 15px;
+}
+.star-box{
+    height: 20vh;
+    overflow-y: auto;
+}

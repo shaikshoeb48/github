@@ -1,0 +1,92 @@
+<div *ngIf="userInfo" class="container-fluid padd">
+    
+  <!--row starts here-->
+  
+  <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="border-right">
+          <div class="card mb-3 mx-auto" style="max-width: 18rem;">
+            <img [src]="userInfo.avatar_url" class="card-img-top w-50 p-3 mx-auto" alt="...">
+
+            <!--user info starts here-->
+            <div class="card-body text-primary">
+              <h5 class="card-title text-center text-dark">{{userInfo.name}}</h5>
+              <p class="card-text text-muted text-center">{{userInfo.login}}</p>
+              <p *ngIf="userInfo.company" class="card-text">Works at <span class="text-muted">{{userInfo.company}}</span>
+              </p>
+              <p *ngIf="userInfo.bio" class="card-text">Bio: <span class="text-muted">{{userInfo.bio}}</span></p>
+              <p *ngIf="userInfo.followers" class="card-text">Followers: <span
+                  class="text-muted">{{userInfo.followers}}</span></p>
+              <div *ngIf="userStarRepoInfo?.length > 0" class="card-text star-box">Starred Repos: 
+                <div
+                  *ngFor="let star of userStarRepoInfo"><span class="text-muted">{{star.full_name}}</span></div>
+              </div>
+              <p *ngIf="userInfo.public_repos" class="card-text text-dark">No.of public repos : <span
+                  class="text-muted">{{userInfo.public_repos}}</span></p>
+              <p *ngIf="userInfo.public_gists" class="card-text">No.of public gists :<span
+                  class="text-muted">{{userInfo.public_gists}}</span></p>
+            </div>
+ <!--user info ends here-->
+ 
+          </div>
+        </div>
+      </div>
+
+      <!--user repos starts here-->
+      <div class="col-md-3 col-xs-12">
+        <div class="text-dark border-right box-padd">
+          <h5>Repositories</h5>
+          <hr>
+          <div *ngIf="!userRepoInfo?.length > 0" class="text-muted">
+            <a>No Repositories Found</a>
+          </div>
+          <div *ngIf="userRepoInfo" class="repos-box">
+            <div *ngFor="let repo of userRepoInfo" class="text-muted user-box">
+              <a [attr.href]="repo.html_url">{{repo.full_name}}</a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+<!--user repos ends here-->
+
+
+<!--user gits start here-->
+      <div class="col-md-4 col-xs-12">
+        <div class="text-dark border-right box-padd">
+          <h5>Gists</h5>
+          <hr>
+          <div *ngIf="!userGistInfo?.length > 0" class="text-muted">
+            <a>No Gists Found</a>
+          </div>
+          <div *ngIf="userGistInfo" class="repos-box">
+            <div *ngFor="let gist of userGistInfo" class="text-muted user-box">
+              <a [attr.href]="gist.html_url">{{gist.html_url}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--user gits ends here-->
+
+
+<!--user followers start here-->
+      <div class="col-md-2 col-xs-12">
+        <div class="text-dark border-right box-padd">
+          <h5>Followers</h5>
+          <hr>
+          <div *ngIf="!userFollowerInfo?.length > 0" class="text-muted">
+            <a>No Followers</a>
+          </div>
+          <div *ngIf="userFollowerInfo" class="repos-box">
+            <div *ngFor="let follower of userFollowerInfo" class="text-muted user-box">
+              <a [attr.href]="follower.html_url">{{follower.login}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--user followers ends here-->
+
+    </div>
+<!--row ends here-->
+
+  </div>
